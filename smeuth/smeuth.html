@@ -1,0 +1,58 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Smeuth</title>
+  <meta name="description" content="Smeuth">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+
+<body>
+<p>Tell us about yourself!</p>
+
+  <form id="frm1" action="/action_page.php">
+    <label for="text">Describe yourself (the longer the better):</label>
+    <textarea id="text" cols="30" rows="5" style="width:30em; height:5em">If you need me, I`ll be downstairs with the shop vac. You can call but I probably won`t hear you because it`s loud with the shop vac on.</textarea>
+    <br>
+    <p>Do you like these activites? Enter 1 for yes and 0 for no:</p>
+    <br>
+    Larping: <input type="number" id="larp" step=any value=1><br>
+    Acting: <input type="number" id="act" step=any value=0><br>
+    Gunsmithing: <input type="number" id="gun" step=any value=0><br>
+    Quilling: <input type="number" id="qui" step=any value=0><br>
+    Leather Crafting: <input type="number" id="leath" step=any value=1><br>
+    Yoyoying: <input type="number" id="yoyo" step=any value=0><br>
+    Tatting: <input type="number" id="tat" step=any value=0><br>
+    Juggling: <input type="number" id="jug" step=any value=0><br>
+    Glassblowing: <input type="number" id="glass" step=any value=0><br>
+    Couponing: <input type="number" id="coup" step=any value=0><br>
+    Embroidery: <input type="number" id="emb" step=any value=0><br>
+    Lapidary: <input type="number" id="lapi" step=any value=0><br>
+    <br>
+    <input type="button" onclick="myFunction()" value="Submit"><br>
+    <span id="result"></span><br>
+  </form>
+
+  <script>
+  function myFunction() {
+    // Placeholder until we get the python backend running properly
+    var num = Math.floor((Math.random() * 5));
+
+    printout(num)
+  }
+
+  function printout(a) {
+    var r = document.getElementById('result')
+    // Placeholder until we get the python backend running properly
+    r.innerHTML = 'We have detected this number of matches within range: ' + a + '<br>' + 'Unfortunately this is not enough people to generate a meetup.'
+  }
+  </script>
+
+
+</body>
+</html>
