@@ -8,19 +8,18 @@
   <meta name="description" content="Smeuth">
   <meta name="author" content="SitePoint">
 
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
+  <link rel="stylesheet" href="toolkit.css">
 
 </head>
 
 <body>
-<p>Tell us about yourself!</p>
+<h3>Tell us about yourself!</h3>
 
   <form id="frm1" action="/action_page.php">
-    <label for="text">Describe yourself (the longer the better):</label>
+    <p>Describe yourself (the longer the better):</p>
     <textarea id="text" cols="30" rows="5" style="width:30em; height:5em">If you need me, I`ll be downstairs with the shop vac. You can call but I probably won`t hear you because it`s loud with the shop vac on.</textarea>
     <br>
     <p>Do you like these activites? Enter 1 for yes and 0 for no:</p>
-    <br>
     Larping: <input type="number" id="larp" step=any value=1><br>
     Acting: <input type="number" id="act" step=any value=0><br>
     Gunsmithing: <input type="number" id="gun" step=any value=0><br>
@@ -49,7 +48,7 @@
   function printout(a) {
     var r = document.getElementById('result')
     // Placeholder until we get the python backend running properly
-    r.innerHTML = 'We have detected this number of matches within range: ' + a + '<br>' + 'Unfortunately this is not enough people to generate a meetup.'
+    r.innerHTML = 'This user would have this many matches: ' + a + '<br>' + 'Unfortunately this is not enough people to generate a meetup.'
   }
   </script>
 
