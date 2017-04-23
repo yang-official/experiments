@@ -1,0 +1,74 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>The Cowculator</title>
+  <meta name="description" content="The Cowculator">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+
+<body>
+<p>Enter values in the fields, then click "Submit" to submit the form:</p>
+
+  <form id="frm1" action="/action_page.php">
+    Acre to Pasture (ex: 1.2): <input type="number" id="apm" step=any value=1.2><br>
+    Months to Pasture (ex: 6): <input type="number" id="mo" step=any value=6><br>
+    Cost per Acre per Month (ex: 30): <input type="number" id="fpa" step=any value=30><br>
+    Daily Winter Feed in pounds (ex: 40): <input type="number" id="dfl" step=any value=40><br>
+    Price Winter Feed per ton (ex: 65): <input type="number" id="ppt" step=any value=65><br>
+    Days using Feed (ex: 180): <input type="number" id="dof" step=any value=180><br>
+    Overhead Per Year (ex: 69.79): <input type="number" id="opy" step=any value=69.79><br>
+    Vet, Breeding, Insurance costs (ex: 125.43): <input type="number" id="vbi" step=any value=125.43><br>
+    Weight of Calf in pounds (ex: 600): <input type="number" id="wca" step=any value=600><br>
+    Price per CWT for Calf (ex: 158): <input type="number" id="pcca" step=any value=158><br>
+    Weight of Cow to Cull (ex: 1300): <input type="number" id="wco" step=any value=1300><br>
+    Price per CWT for Cull (ex: 70): <input type="number" id="pccu" step=any value=70><br>
+    Calf Crop Years (ex: 4.7): <input type="number" id="cc" step=any value=4.7><br>
+    Death Rate (ex: 0.03): <input typ="number" id="dr" step=any value=0.03><br>
+    <br>
+    <input type="button" onclick="myFunction()" value="Submit"><br>
+    <span id="result"></span><br>
+  </form>
+
+  <script>
+  function myFunction() {
+    apm = document.getElementById("apm").value;
+    mo = document.getElementById("mo").value;
+    fpa = document.getElementById("fpa").value;
+    dfl = document.getElementById("dfl").value;
+    ppt = document.getElementById("ppt").value;
+    dof = document.getElementById("dof").value;
+    opy = document.getElementById("opy").value;
+    vbi = document.getElementById("vbi").value;
+    wca = document.getElementById("wca").value;
+    pcca = document.getElementById("pcca").value;
+    wco = document.getElementById("wco").value;
+    pccu = document.getElementById("pccu").value;
+    cc = document.getElementById("cc").value;
+    dr = document.getElementById("dr").value;
+    var gpc = apm * fpa * mo;
+    var wfc = dfl * ppt / 2000.0 * dfl;
+    var v = wca/100.0 * pcca;
+    var cs = wco/100.0 * pccu;
+
+    var total_in = v * cc + cs * (1.0-dr);
+    var total_ex = cc * (gpc + wfc + 69.73 + 125.43);
+    var net = total_in - total_ex;
+
+    printout(total_in, total_ex, net)
+  }
+
+  function printout(a, b, c) {
+    var r = document.getElementById('result')
+    r.innerHTML = 'Total Income: ' + a.toFixed(2) + '<br>' + 'Total Expense: ' + b.toFixed(2) + '<br>' + 'Net Profit: ' + c.toFixed(2) + '<br>'
+  }
+  </script>
+
+
+</body>
+</html>
